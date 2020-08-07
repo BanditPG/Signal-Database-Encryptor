@@ -11,7 +11,7 @@ Manual:
   - Enter signal.exe path
   - Enter config.json (%appdata%/signal/config.json)
   - Enter Password
-  - Again enter Password
+  - Enter Password again 
   
   Logging:
   - Enter Password
