@@ -5,8 +5,10 @@ Link to article: https://www.bleepingcomputer.com/news/security/signal-desktop-l
 
 Script encode private key with your password
 
+If you use this script once, you will always need it, but you can delete encryption.
+
 Manual:
-  
+
   Creating account:
   - Enter signal.exe path
   - Enter config.json (%appdata%/signal/config.json)
