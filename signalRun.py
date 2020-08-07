@@ -47,7 +47,7 @@ def EncodeData(data, token):
         data = token.encrypt(data)
         return data
     except:
-        print("Coś spadło z rowerka w EncodeData")
+        print("Critical Error")
         return False
 
 def DecryptData(data, token):
@@ -60,7 +60,7 @@ def SignalKeyMenager(key):
     file.close()
 
     if(key == None):
-        signal["key"] = "Co myslales ze tak latwo XD"
+        signal["key"] = "It's not too easy"
     else:
         signal["key"] = key
 
@@ -70,8 +70,8 @@ def SignalKeyMenager(key):
 
 def CreatingPass():
     while True:
-        password = getpass("Wpisz nowe hasło: ")
-        passwordAgain = getpass("Wpisz ponownie hasło: ")
+        password = getpass("New password: ")
+        passwordAgain = getpass("Reapet password: ")
         if(password == passwordAgain):
             break
         os.system("cls")
@@ -107,11 +107,11 @@ def Login():
 
     while True:
         try:
-            password = getpass("Podaj hasło: ")
+            password = getpass("Password: ")
             data = DecryptData(data, GenerateToken(password, salt)[0])
             break
         except:
-            print("ZŁE HASŁO")
+            print("BAD PASSWORD")
 
     SignalKeyMenager(data.decode(encoding='utf8'))
 
