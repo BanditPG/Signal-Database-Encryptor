@@ -70,8 +70,6 @@ def DecryptData(data, token):
     return data
         
 def SignalKeyMenager(key):
-    print(signalEXE)
-    print(signalFile)
     file = open(signalFile, 'r', encoding='utf8')
     signal = json.load(file)
     file.close()
@@ -134,14 +132,12 @@ def Login():
 
 def LaunchSignal():
     global signalEXE
-
+    ctypes.windll.user32.ShowWindow(ctypes.windll.kernel32.GetConsoleWindow(), 0)  
     subprocess.call(signalEXE)
-
 
 if __name__ == "__main__":
     if(not ConfigFile()):
         CreatingPass()
     Login()
-    ctypes.windll.user32.ShowWindow(ctypes.windll.kernel32.GetConsoleWindow(), 0)
     LaunchSignal()
     SignalKeyMenager(None)
