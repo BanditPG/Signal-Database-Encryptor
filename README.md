@@ -6,14 +6,16 @@ Link to article: https://www.bleepingcomputer.com/news/security/signal-desktop-l
 Script encode private key with your password
 
 Manual:
-  #Creating account
+  
+  Creating account:
   - Enter signal.exe path
   - Enter config.json (%appdata%/signal/config.json)
   - Enter Password
   - Again enter Password
-  #Logging
+  
+  Logging:
   - Enter Password
   
-  #Deleting encryption
+  Deleting encryption:
   - Turn on signal with script
   - Turn off script when signal is on
