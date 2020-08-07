@@ -10,19 +10,34 @@ from getpass import getpass
 import ctypes
 
 
-configFile = "C:\\Users\\Dominik\\AppData\\Roaming\\Signal\\signalRun.json"
-signalFile = "C:\\Users\\Dominik\\AppData\\Roaming\\Signal\\config.json"
-signalEXE = "C:\\Users\\Dominik\\AppData\\Local\\Programs\\signal-desktop\\Signal.exe"
+configFile = "signalRun.json"
+signalFile = ""
+signalEXE = ""
 
 def ConfigFile():
+    global signalEXE
+    global signalFile
+    global configFile
+    
     if(os.path.isfile(configFile)):
+        file = open(configFile, 'r', encoding='utf8')
+        data = json.load(file)
+        file.close()
+
+        signalEXE = data["signalEXE"]
+        signalFile = data["signalFile"]
         return True
 
     else:
+        signalEXE = input("signal.exe path: ")
+        signalFile = input("Signal config.json: ")
+
         data = {
             'status':'1',
             'salt':'',
-            'signalKey':''
+            'signalKey':'',
+            'signalEXE' : signalEXE,
+            'signalFile' : signalFile
         }
 
         file = open(configFile, 'w')
@@ -55,7 +70,9 @@ def DecryptData(data, token):
     return data
         
 def SignalKeyMenager(key):
-    file = open(signalFile, 'r')
+    print(signalEXE)
+    print(signalFile)
+    file = open(signalFile, 'r', encoding='utf8')
     signal = json.load(file)
     file.close()
 
