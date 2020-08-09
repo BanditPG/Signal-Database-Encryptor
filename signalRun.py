@@ -75,7 +75,7 @@ def SignalKeyMenager(key):
     file.close()
 
     if(key == None):
-        signal["key"] = "It's not too easy"
+        signal["key"] = "It's not that easy"
     else:
         signal["key"] = key
 
